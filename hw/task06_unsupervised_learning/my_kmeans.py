@@ -28,9 +28,6 @@ class KMeans:
         return [self._closest_centroid(x) for _, x in X.iterrows()]
 
     def _closest_centroid(self, x):
-        for idx, arr in enumerate(self.centroids):
-            if np.array_equal(arr, x):
-                return idx
         distances = np.sum((self.centroids - np.array(x)) ** 2, axis=1)
         return np.argmin(distances)
         
